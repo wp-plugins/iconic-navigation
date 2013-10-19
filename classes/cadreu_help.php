@@ -1,5 +1,3 @@
-
-
 <? 
 /*
 * Plugin help class
