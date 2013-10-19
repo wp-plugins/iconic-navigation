@@ -3,8 +3,8 @@ Contributors:  indybook
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JKVRG4KDMJMQA
 Tags: menu, navigation, icon, menu image upload, flat icon, font icon, responsive
 Requires at least: 3.5
-Tested up to: 3.6
-Stable tag: 1.0.0
+Tested up to: 3.7-RC1
+Stable tag: 1.1.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -28,6 +28,8 @@ Iconic Navs uses the native Wordpress uploader, meaning that you can choose from
 The uploader as well as the font icons set list works both with javascript enabled and javascript disabled
 
 
+= Live Demo =
+[Iconic Navs Demo](http://plugins.cadros.eu/demos/iconic-navs)
 
 More nav fun coming soon. Keep checking out : [Iconic Navs](http://plugins.cadros.eu)
 = To be added =
@@ -39,8 +41,8 @@ More nav fun coming soon. Keep checking out : [Iconic Navs](http://plugins.cadro
 
 == Installation ==
 
-1. Upload iconic-navs folder to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
+1. Upload iconic-navigation folder to the `/wp-content/plugins/` directory
+1. Activate the plugin through the 'Plugins' menu in WordPress. 
 1. Find settings page under the `Settings` menu
 
 = Minimum Requirements =
@@ -67,6 +69,9 @@ screenshot-5.png
 == Changelog ==
 
 = 1.0 =
+= 1.1 =
+Fixed activation error
+Fixed some icons not showing at Firefox
 
 == Upgrade Notice ==
 ...
