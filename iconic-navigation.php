@@ -3,13 +3,13 @@
 Plugin Name: Iconic Navigation for Wordpress
 Plugin URI: http://cadros.eu/
 Description: Upload image icon to a menu item or chose from over 1400 ready font icons. Add custom style. Set a menu display options for smaller screens
-Version: 1.0
+Version: 1.1
 Author: Cadros
 Author URI: http://cadros.eu/
 Tags: menu, backend, navigation, nav, icon, flat icon, image menu, font icons
 Requires at least: 3.5
-Tested up to: 3.5
-Text Domain: iconic_navs
+Tested up to: 3.6.1
+Text Domain: iconic_navigation
 Domain Path: 
 License: GPLv2 or later
 */

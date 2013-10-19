@@ -1,3 +1,6 @@
+
+
+
 <? 
 /*
 * Nav Menus / Edit nav-menus funs 
@@ -5,13 +8,13 @@
 
 // adds an argument to wp_nav_menu() based on use_nav_icons setting
 function iconnavs_custom_NavMenu_Args( $arg ) {
-	global $iconic_navs;
-	if( in_array($arg['theme_location'], $iconic_navs->getTheme_settings( 'mobile_options', 'use_nav_icons') ) )
+	global $iconic_navigation;
+	if( in_array($arg['theme_location'], $iconic_navigation->getTheme_settings( 'mobile_options', 'use_nav_icons') ) )
 	$arg['mobile_hide'] = true;
 	return $arg;
 }
 // add this filter if we have use_nav_icons settings only
-if( null !== $iconic_navs->getTheme_settings( 'mobile_options', 'use_nav_icons') )
+if( null !== $iconic_navigation->getTheme_settings( 'mobile_options', 'use_nav_icons') )
 add_filter('wp_nav_menu_args', 'iconnavs_custom_NavMenu_Args', 9,1);
 
 
@@ -32,10 +35,10 @@ function iconnavs_showIcon( $item_output, $item, $depth, $args ) {
 		$attributes .= ! empty( $item->xfn )        ? ' rel="'    . esc_attr( $item->xfn        ) .'"' : '';
 		$attributes .= ! empty( $item->url )        ? ' href="'   . esc_attr( $item->url        ) .'"' : '';
 //  Adding Menu icons		
-		global $iconic_navs;
+		global $iconic_navigation;
 		// get img icon size settings for this menu location
-		$icon_size = $iconic_navs->getTheme_settings( $args->theme_location, 'icon_size') ?
-		$iconic_navs->getTheme_settings( $args->theme_location, 'icon_size') : '30px';
+		$icon_size = $iconic_navigation->getTheme_settings( $args->theme_location, 'icon_size') ?
+		$iconic_navigation->getTheme_settings( $args->theme_location, 'icon_size') : '30px';
 
 		// check for icons' custom style for this menu location
 		$imgIcon_customStyle = '';
@@ -43,10 +46,10 @@ function iconnavs_showIcon( $item_output, $item, $depth, $args ) {
 		$icon ='';
 		$span = '';
 		$span_close = '';
-		if( $iconic_navs->getTheme_settings( $args->theme_location, 'img_icons_custom_css') ) 
+		if( $iconic_navigation->getTheme_settings( $args->theme_location, 'img_icons_custom_css') ) 
 			$imgIcon_customStyle = ' img_icons_custom_css';
 			
-		if( $iconic_navs->getTheme_settings( $args->theme_location, 'font_icons_custom_css'))
+		if( $iconic_navigation->getTheme_settings( $args->theme_location, 'font_icons_custom_css'))
 			$fontIcon_customStyle = ' font_icons_custom_css';
 
 		// if icons are set to hide on smaller screens
@@ -56,10 +59,10 @@ function iconnavs_showIcon( $item_output, $item, $depth, $args ) {
 		}
 		// check what icon type to use and if an item has such icon
 		if( $args->theme_location && has_nav_menu( $args->theme_location ) ) { // it's a menu assigned to a location, so check the location options
-		if( $item->icon &&  $iconic_navs->getTheme_settings( $args->theme_location, 'icon_type') !== 'font_ics' ) { // the item has an img icon and the location is not set to use font icons. let img icon be 
+		if( $item->icon &&  $iconic_navigation->getTheme_settings( $args->theme_location, 'icon_type') !== 'font_ics' ) { // the item has an img icon and the location is not set to use font icons. let img icon be 
 			$icon = '<img class="iconic_icon '.$imgIcon_customStyle .'" src="'.$item->icon .'" style="width:'.$icon_size.';height:'.$icon_size.'">'.$span;
 		}
-		if( $item->font_icon && $iconic_navs->getTheme_settings( $args->theme_location, 'icon_type') !== 'img_ics' ) { // use font icons
+		if( $item->font_icon && $iconic_navigation->getTheme_settings( $args->theme_location, 'icon_type') !== 'img_ics' ) { // use font icons
 			$icon = '<em class="'. $item->font_icon.$fontIcon_customStyle.'"></em>'.$span;
 		}
 		} else { // no location
@@ -212,12 +215,12 @@ class iconNavs_Edit_Nav_Menu_Walker extends Walker_Nav_Menu {
 				</p>
 
 <? // Add icon upload  ?>
-<? global $iconic_navs; 
+<? global $iconic_navigation; 
 include_once( "iconavs_icons.php" ); // font icons funs
 ?>
 <p class="icon description description-wide">
 	<label>Icon
-<i class="comment">Icons style and display options for each menu location can be set up at <a href='<?=admin_url( 'options-general.php?page='.$iconic_navs->_NAME() )?>'><?=$iconic_navs->help->UseName( $iconic_navs->_NAME(),1 )?> Settings</a></i>
+<i class="comment">Icons style and display options for each menu location can be set up at <a href='<?=admin_url( 'options-general.php?page='.$iconic_navigation->_NAME() )?>'><?=$iconic_navigation->help->UseName( $iconic_navigation->_NAME(),1 )?> Settings</a></i>
 	</label>
 <? if( ! isset( $_REQUEST['edit-menu-item']) ) { // if js enabled ?>
 	<span class="icon_thumb"><? // div for img insert right after upload | js/admin_mysripts.js 
@@ -226,7 +229,7 @@ include_once( "iconavs_icons.php" ); // font icons funs
 	<input type="submit" class="delete_icon butt button" name="delete_icon" id="<?= $item_id ?>" value="Delete icon"/>
 	<? } ?>
 	</span>
-	<? echo $iconic_navs->help->cadreu_call_WP_Uploader('icon', $item_id ); // call uploader ?>
+	<? echo $iconic_navigation->help->cadreu_call_WP_Uploader('icon', $item_id ); // call uploader ?>
 	<input type="hidden" id="icon_url" name="img_url[<?= $item_id ?>]" value="<?= $item->icon ?>" />
 
 	<? // font icon choice popup link ?>
@@ -250,7 +253,7 @@ include_once( "iconavs_icons.php" ); // font icons funs
 
 	if( isset($_REQUEST['edit-menu-item']) && $_REQUEST['edit-menu-item'] == $item_id ) { // js disabled. render the upload at the active menu item only so we have one upload at a time. otherwise !is_uploaded_file from the inacitve items forse it to die on handling | slave_funs.php | moveUploadedFile() ?>
 
-	<?  $icon_data = $iconic_navs->help->moveUploadedFile(); // handle FILES, get the icon url | slave_funs.php
+	<?  $icon_data = $iconic_navigation->help->moveUploadedFile(); // handle FILES, get the icon url | slave_funs.php
 	// render icon thumb
 	//$_POST['delete_icon'] = null; 
 	if( null == $_POST['delete_icon'] ) {
@@ -266,7 +269,7 @@ include_once( "iconavs_icons.php" ); // font icons funs
 		$icon_url = ''; // pass the empty icon value to update_post_meta at insert_delete_nav_icon()
 	} ?>
 	<input type="hidden" id="icon_url" name="img_url[<?= $item_id ?>]" value="<?= $icon_url?>" />
-	<? echo $iconic_navs->help->uploadForm('icon', $item_id ); // do upload form ?>
+	<? echo $iconic_navigation->help->uploadForm('icon', $item_id ); // do upload form ?>
 
 
 	<? // font icon choice link | js-less ?>
@@ -374,10 +377,4 @@ function iconnavs_insert_delete_nav_icon( $menu_id, $item_id, $args ) {
 	if( isset($_POST['font_ic'][$item_id] ) )
 	update_post_meta( $item_id, '_menu_font_icon', $_POST['font_ic'][$item_id] );	
 } add_action('wp_update_nav_menu_item', 'iconnavs_insert_delete_nav_icon', 10,3 );
-
-
-
-
-
-
 ?>

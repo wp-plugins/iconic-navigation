@@ -53,15 +53,15 @@ Wordpress 3.5
 == Screenshots ==
 
 1. Iconic Navs Image Iconed Menu
-iconic-menu-image-styled.png
+screenshot-1.png
 2. Iconic Navs Font Iconed Menu
-iconic-navs-font-icon-menu.png
+screenshot-2.png
 3. Iconic Navs Font Icons Chose Table
-font-icons-chose-table.png
+screenshot-3.png
 4. Iconic Navs Settings
-iconic-navs-settings.png
+screenshot-4.png
 5. Iconic Navs Icons Add
-icons-add.png
+screenshot-5.png
 
 
 == Changelog ==
