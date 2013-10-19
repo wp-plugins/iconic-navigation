@@ -1,3 +1,4 @@
+
 <?php
 /*
 Plugin Options Page
@@ -76,7 +77,6 @@ function cadreu_Section_Fields() {
 } 
 
 function cadreu_Setting_Fields( ){
-	//echo xdebug_memory_usage();
 	$options_fields = self::cadreu_Section_Fields();
 	
 	foreach( $options_fields as $group => $options ) {
@@ -326,10 +326,10 @@ function getTheme_settings($group, $field ) {
 $plugin_name = str_replace('-', '_',  basename(dirname(dirname(__FILE__)) ) );
 
 $$plugin_name = new cadreuPlugin_Options();
-$iconic_navs->file = dirname(dirname(__FILE__)).
+$iconic_navigation->file = dirname(dirname(__FILE__)).
 substr( dirname(dirname(__FILE__)), strripos(dirname(dirname(__FILE__)), '/') ) .'.php';
 
-$iconic_navs->actions();
-$iconic_navs->add_options();
-//$iconic_nav->cap = 'edit_posts'; // for demo site to let users to options. or change for any admin cap: 'manage_options', 'activate_plugins'..
+$iconic_navigation->actions();
+$iconic_navigation->add_options();
+//$iconic_navigation->cap = 'edit_posts'; // for demo site to let contributors to options. or change for any admin cap: 'manage_options', 'activate_plugins'..
 ?>

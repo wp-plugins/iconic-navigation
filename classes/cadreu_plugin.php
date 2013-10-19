@@ -1,3 +1,4 @@
+
 <?php
 /**
  * A Plugin Class
@@ -52,7 +53,7 @@ public function _textdomain() {
 		);
 	}
 
-		// a link to the plugin Settings page at plugins list table
+// links to plugin Settings/Help pages at plugins list table
 public function _Settings_link( $links, $file  ) {
 	if ( $file == plugin_basename( $this->file ) ) {
 	$links[]  =  '<a class="cadreu_link" href="' . admin_url( 'options-general.php?page='.$this->_NAME() ) . '">' . __( 'Settings', $this->_NAME() ) . '</a>';
@@ -87,49 +88,6 @@ public function _admin_scripts() {
 		wp_enqueue_script( 'respond.min', plugins_url().'/'.plugin_basename( dirname( $this->file ) ) . '/js/respond.min.js', '', '', false );
 		wp_enqueue_script( 'admin_myscripts', plugins_url().'/'.plugin_basename( dirname( $this->file ) ) . '/js/admin_myscripts.js', '', '', true );
 	}
-	/*
-public static function on_uninstall()
-    {
-        if ( ! current_user_can( 'activate_plugins' ) )
-            return;
-        check_admin_referer( 'bulk-plugins' );
-
-        // Important: Check if the file is the one
-        // that was registered during the uninstall hook.
-        if ( __FILE__ != WP_UNINSTALL_PLUGIN )
-            return;
-        $options_fields = cadreuPlugin_Options::cadreu_Section_Fields();
-	//var_dump($options_fields);
-	foreach( $options_fields as $options ) {
-		foreach ($options as $key => $option ) {
-			//var_dump($this->_NAME().$key);
-			delete_option( $this->_NAME().$key );
-			
-		}
-	}
-	delete_option( 'iconic-navsmobile_options' );
-
-        # Uncomment the following line to see the function in action
-        # exit( var_dump( $_GET ) );
-}
-*/
-		// plugin unistall hook callback
-public static function cadreu_uninstall() {
-	/*
-	$options_fields = cadreuPlugin_Options::cadreu_Section_Fields();
-	//var_dump($options_fields);
-	foreach( $options_fields as $options ) {
-		foreach ($options as $key => $option ) {
-			//var_dump($this->_NAME().$key);
-			delete_option( $this->_NAME().$key );
-			
-		}
-	} delete_option( 'iconic-navsmobile_options' );
-	delete_post_meta_by_key( '_menu_icon' );
-delete_post_meta_by_key( '_menu_font_icon' );
-*/
-	die( var_dump( $_GET ) );
-}
 
 } // end class
 } // end if class exists
