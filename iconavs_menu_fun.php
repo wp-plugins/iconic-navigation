@@ -232,9 +232,9 @@ include_once( "iconavs_icons.php" ); // font icons funs
 	<? // font icon choice popup link ?>
 	<span class="font_icons">Chose from font icons</span>
 	<span class="screen_shade">
+	<span class="close_up">x</span>
 		<span class="font_icon_popup">
 		<? echo iconnavs_Font_Icons( $item_id ) ?>
-		<span class="close_up">x</span>
 		</span>
 	</span>
 

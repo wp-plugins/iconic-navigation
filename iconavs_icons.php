@@ -15,7 +15,7 @@ function iconnavs_Font_Icons( $item_id='' ) {
 }
 
 
-function iconnavs_Font_Icons_Jsless( $item_id='', $icons  ) {
+function iconnavs_Font_Icons_Jsless( $item_id='', $icons =''  ) {
 	global $ficons;
 	foreach( $ficons as $ic ) {
 		$link .= '<span class="icon_cell"><a href="'. esc_url(
