@@ -60,12 +60,12 @@ public function _Settings_link( $links, $file  ) {
 	if(file_exists(plugin_dir_path( $this->file ) .'Help')) {
 		$docs_url = plugins_url().'/'.plugin_basename( dirname( $this->file ) ) . '/Help/'.$this->_NAME().'-docs.php';
 	} else {
-		$docs_url = 'http://plugins.cardos.eu/demos/'.$this->_NAME().'/docs';
+		$docs_url = 'http://plugins.cadros.eu/demos/'.$this->_NAME().'/docs';
 	}
 		
 	$links[]  =  '<a class="cadreu_link" href="' . $docs_url.'">' . __( 'Docs', $this->_NAME() ) . '</a>';
 
-	$links[]  =  '<a class="cadreu_link" href="http://plugins.cardos.eu/demos/'.$this->_NAME().'/support">' . __( 'Support', $this->_NAME() ) . '</a>';
+	$links[]  =  '<a class="cadreu_link" href="http://plugins.cadros.eu/demos/'.$this->_NAME().'/support">' . __( 'Support', $this->_NAME() ) . '</a>';
 	}
 	return  $links;
 }
