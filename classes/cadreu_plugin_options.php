@@ -10,7 +10,7 @@ if ( ! class_exists( 'cadreuPlugin_Options' ) ) {
 
 class cadreuPlugin_Options extends cadrEu_Plugin {
 static $options_call;
-public $sections = array( 'menu_locations', 'mobile_options' ); // add sections names here | will be used by cadreu_Add_Sections() 
+public $sections = array( 'menu_locations', 'mobile_options', 'increase_font_support' ); // add sections names here | will be used by cadreu_Add_Sections() 
 
 
 	// adds plugin's actions to wp 
@@ -282,17 +282,52 @@ function mobile_options() {
 				  'title'=>'Display icons only at:',
 				  'type'=>'check',
 				  'section' => __FUNCTION__,
-				  'select' => $allowed_menu )
+				  'select' => $allowed_menu
+				  )
 					)				
 	);  return $options_fields;
 }
 
+
+function increase_font_support_deza() { 
+	echo "<p class='section_deza'>Chose this option if you experience some icon not showing in some browsers or need to support older versions of Internet Explorer (older then ie7).</p>";
+}
+
+function increase_font_support() {
+	$menus = get_registered_nav_menus();
+	$assigned_menus = get_nav_menu_locations();
+
+	if( ! $assigned_menus || array_sum( $assigned_menus ) == 0  ) return;
+
+	$allowed_menu = array();
+	foreach ($menus as $slug => $description ) {
+
+		if( array_key_exists($slug, $assigned_menus) && 0 !== $assigned_menus[$slug] ) 
+
+		$allowed_menu[$slug] = $description;
+	}
+	$options_fields = array(
+		'increase_font_support' => array(
+			'binary_encoding'=> array(
+				  'title'=>'Include Base64 encoded font in CSS',
+				  'type'=>'radio',
+				  'section' => __FUNCTION__,
+				  )
+				)				
+	);  return $options_fields;
+}
+
+
 	// ~~~~~~~~~~~~~ end settings page ~~~~~~~~~~~~~~~~~~~~
 
 // usage: (pluginName.my_option, use_nav_icons)
-function getTheme_settings($group, $field ) {
+function getTheme_settings($group, $field = null ) {
 	$get_o = get_option( $this->_NAME().$group);
 	if(! $get_o ) return;
+
+	if( ! $field ) {
+		return $get_o;
+	}
 	if( isset( $get_o[$field] ) )  return $get_o[$field]; 
 }
 
@@ -323,10 +358,13 @@ function getTheme_settings($group, $field ) {
 } // end if class exists
 
 $plugin_name = str_replace('-', '_',  basename(dirname(dirname(__FILE__)) ) );
-
+$fileName = basename(dirname(dirname(__FILE__)) );
 $$plugin_name = new cadreuPlugin_Options();
-$iconic_navigation->file = dirname(dirname(__FILE__)).
-substr( dirname(dirname(__FILE__)), strripos(dirname(dirname(__FILE__)), '/') ) .'.php';
+$iconic_navigation->file = dirname(dirname(__FILE__)).'/'.$fileName.'.php';
+//$old = dirname(dirname(__FILE__)).substr( dirname(dirname(__FILE__)), strripos(dirname(dirname(__FILE__)), '/') ) .'.php';
+//var_dump($old, $fileName, $iconic_navigation->file );
+//'iconic-navigation';
+//dirname(dirname(__FILE__)).substr( dirname(dirname(__FILE__)), strripos(dirname(dirname(__FILE__)), '/') ) .'.php';
 
 $iconic_navigation->actions();
 $iconic_navigation->add_options();
