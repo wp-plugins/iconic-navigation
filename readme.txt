@@ -69,12 +69,12 @@ screenshot-5.png
 
 = 1.0 =
 = 1.1 =
-Fixed activation error
-Fixed some icons not showing at Firefox
+* Fixed activation error
+* Fixed some icons not showing at Firefox
 = 1.1.3 =
-Increase font support added
-Base64 encoded font optional added
-Backend label tag fixed
+* Increase font support added
+* Base64 encoded font optional added
+* Backend label tag fixed
 
 == Upgrade Notice ==
 ...
