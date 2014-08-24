@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: menu, navigation, icon, menu image upload, flat icon, font icon, responsive
 Requires at least: 3.5
 Tested up to: 3.9.2
-Stable tag: 1.1.3
+Stable tag: 1.1.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -32,7 +32,7 @@ The uploader as well as the font icons set list works both with javascript enabl
 = Live Demo =
 [Iconic Navs Demo](http://plugins.cadros.eu/demos/iconic-navs)
 
-Please contact me at : [Iconic Navs](http://plugins.cadros.eu) if your support request is urgent. 
+Please contact me at : [Iconic Navs Demo](http://plugins.cadros.eu) if your support request is urgent. 
 
 = Features request =
 * __Feel free__  to [request features](http://plugins.cadros.eu/demos/iconic-navs/request)
@@ -69,12 +69,12 @@ screenshot-5.png
 
 = 1.0 =
 = 1.1 =
-Fixed activation error
-Fixed some icons not showing at Firefox
-= 1.1.3 =
-Increase font support added
-Base64 encoded font optional added
-Backend label tag fixed
+* Fixed activation error
+* Fixed some icons not showing at Firefox
+= 1.1.4 =
+* Increase font support added
+* Base64 encoded font optional added
+* Backend label tag fixed
 
 == Upgrade Notice ==
 ...
