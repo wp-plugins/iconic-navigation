@@ -18,6 +18,10 @@ function UseName( $name, $for = 'system' ) {
 		}
 }
 
+function issetField( $post, $index ) {
+	    return isset($post[$index]) ? $post[$index] : null;
+	}
+
 
 function tags( $tag, $class=null ) {
 	$tags = array();

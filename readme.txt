@@ -4,8 +4,8 @@ Contributors:  indybook
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JKVRG4KDMJMQA
 Tags: menu, navigation, icon, menu image upload, flat icon, font icon, responsive
 Requires at least: 3.5
-Tested up to: 3.8
-Stable tag: 1.1.2
+Tested up to: 3.9.2
+Stable tag: 1.1.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -32,12 +32,10 @@ The uploader as well as the font icons set list works both with javascript enabl
 = Live Demo =
 [Iconic Navs Demo](http://plugins.cadros.eu/demos/iconic-navs)
 
-More nav fun coming soon. Keep checking out : [Iconic Navs](http://plugins.cadros.eu)
-= To be added =
-* __Content quick view__ - Nice little/full width pop-ups/dropdowns showing the teaser of the latest post or number of posts/pages/images with ReadMore
-* __Icon skins__ - Have icons fashioned.
-* __Floating menu__ -  Various effects to a menu
-* __And more__ - Feel free to [request features](http://plugins.cadros.eu/demos/iconic-navs/request)
+Please contact me at : [Iconic Navs](http://plugins.cadros.eu) if your support request is urgent. 
+
+= Features request =
+* __Feel free__  to [request features](http://plugins.cadros.eu/demos/iconic-navs/request)
 
 
 == Installation ==
@@ -73,6 +71,10 @@ screenshot-5.png
 = 1.1 =
 Fixed activation error
 Fixed some icons not showing at Firefox
+= 1.1.3 =
+Increase font support added
+Base64 encoded font optional added
+Backend label tag fixed
 
 == Upgrade Notice ==
 ...

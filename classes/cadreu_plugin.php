@@ -41,6 +41,9 @@ function included() {
 */
 function _NAME() {
 	$nombre = plugin_basename( dirname( $this->file) );
+	//if(is_admin())
+	//var_dump($nombre);
+	//return 'iconic-navigation';
 	return $nombre;
 }
 
@@ -54,6 +57,7 @@ public function _textdomain() {
 
 // links to plugin Settings/Help pages at plugins list table
 public function _Settings_link( $links, $file  ) {
+	//var_dump($file, plugin_basename( $this->file ) );
 	if ( $file == plugin_basename( $this->file ) ) {
 	$links[]  =  '<a class="cadreu_link" href="' . admin_url( 'options-general.php?page='.$this->_NAME() ) . '">' . __( 'Settings', $this->_NAME() ) . '</a>';
 
@@ -71,12 +75,21 @@ public function _Settings_link( $links, $file  ) {
 }
 
 public function _scripts() {
-		wp_enqueue_style( 'cadreu_style', plugins_url().'/'.plugin_basename( dirname( $this->file ) ). '/css/screen.css' );
+		wp_enqueue_style( 'iconic-nav-style', plugins_url().'/'.plugin_basename( dirname( $this->file ) ). '/css/screen.css' );
+
+		$binary = get_option( $this->_NAME().'increase_font_support');
+		if( $this->help->issetField($binary, 'binary_encoding') ) {
+			wp_enqueue_style( 'iconic-nav-binary-font-support', plugins_url().'/'.plugin_basename( dirname( $this->file ) ). '/css/binary-icon-font.css' );
+		}
 		global $is_iis7;
 		if( $is_iis7 ) {
 		wp_enqueue_script('jquery',null,null, '', true);
 		wp_enqueue_script( 'ie_seven', plugins_url().'/'.plugin_basename( dirname( $this->file ) ) . '/js/lte-ie7.js', array( 'jquery' ), '2011-04-28', true );
 		wp_enqueue_script( 'respond.min', plugins_url().'/'.plugin_basename( dirname( $this->file ) ) . '/js/respond.min.js', '', '', false );
+		
+		if( ! $this->help->issetField($binary, 'binary_encoding') ) { // include if for old bro regardless
+				wp_enqueue_style( 'iconic-nav-binary-font-support', plugins_url().'/'.plugin_basename( dirname( $this->file ) ). '/css/binary-icon-font.css' );
+			}
 		}
 }
 
