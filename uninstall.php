@@ -8,7 +8,7 @@
  * Deletes_options and meta keys holding icon values
  *
  * @author 		Cadros
- * @version     1.0
+ * @version     1.5
  */
 if( !defined('WP_UNINSTALL_PLUGIN') ) exit();
 global $iconic_navigation, $wpdb;
