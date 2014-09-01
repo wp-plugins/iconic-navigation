@@ -1,6 +1,3 @@
-
-
-
 <?php
 /**
  * IconicNavigation Uninstall
@@ -8,7 +5,7 @@
  * Deletes_options and meta keys holding icon values
  *
  * @author 		Cadros
- * @version     1.5
+ * @version     1.1.6
  */
 if( !defined('WP_UNINSTALL_PLUGIN') ) exit();
 global $iconic_navigation, $wpdb;

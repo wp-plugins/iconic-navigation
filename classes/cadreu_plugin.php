@@ -5,8 +5,8 @@
  * Works out plugin data: name, file & such. Loads scripts, builds links for plugins list table
  *
  * @class cadrEu_Plugin
- * @version	1.1
- * @since 3.5
+ * @version	1.1.6
+ * @since 1.0
  * @author Cadros
  */
 
