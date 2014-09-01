@@ -243,7 +243,7 @@ include_once( "iconavs_icons.php" ); // font icons funs
 	?>
 	<em name="<?php echo $item_id ?>" <?php echo $font_ic_class ?>></em>
 
-	<span name="<?php echo $item_id ?>" class="remove_font_icon_js <?=$show_remove_link?>">Remove font icon</span>
+	<span name="<?php echo $item_id ?>" class="remove_font_icon_js <?php echo $show_remove_link?>">Remove font icon</span>
 	<input type="hidden" id="font_icon" name="font_ic[<?php echo $item_id ?>]" value="<?php echo $item->font_icon ?>" />
 	 <?php
 }
