@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: menu, navigation, icon, menu image upload, flat icon, font icon, responsive
 Requires at least: 3.5
 Tested up to: 3.9.2
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -75,6 +75,8 @@ screenshot-5.png
 * Increase font support added
 * Base64 encoded font optional added
 * Backend label tag fixed
+= 1.1.6 =
+* PHP open tag activation error fixed
 
 == Upgrade Notice ==
 ...

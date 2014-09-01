@@ -44,21 +44,21 @@ public function _options_form() { ?>
 <div>
 <div class="cadreu_credits"> 
 <a href="http://cadros.eu" class="logo">
-<img src="<?=plugins_url().'/'.plugin_basename( dirname( $this->file ) ) ?>/css/img/cadrosSite.png" class="cadro_logo"/>
+<img src="<?php echo plugins_url().'/'.plugin_basename( dirname( $this->file ) ) ?>/css/img/cadrosSite.png" class="cadro_logo"/>
 </a>
-<? $handy_links = parent::_Settings_link('', plugin_basename( $this->file ) );
+<?php $handy_links = parent::_Settings_link('', plugin_basename( $this->file ) );
 foreach ($handy_links as $key=>$link ) {
 	if($key == 0) continue;
 	echo ' • '.$link;
 }
 ?>
 </div>
-<h2 class="setting_page_title"><?=$this->help->UseName( $this->_NAME(), 1)?> Settings</h2>
+<h2 class="setting_page_title"><?php echo $this->help->UseName( $this->_NAME(), 1)?> Settings</h2>
 <form action="options.php" class="cadreu_pluginForm" method="post">
 <?php settings_fields( $this->_NAME().'settings' ); ?>
 <?php do_settings_sections( $this->_NAME() ); ?>
 <input name="Submit" type="submit" class="butt button-primary" value="<?php esc_attr_e('Save Changes'); ?>" />
-</form></div> <?
+</form></div> <?php
 } 
 
 		// add sections

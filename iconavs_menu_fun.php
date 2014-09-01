@@ -1,4 +1,4 @@
-<? 
+<?php 
 /*
 * Nav Menus / Edit nav-menus funs 
 */
@@ -211,46 +211,46 @@ class iconNavs_Edit_Nav_Menu_Walker extends Walker_Nav_Menu {
 					</label>
 				</p>
 
-<? // Add icon upload  ?>
-<? global $iconic_navigation; 
+<?php // Add icon upload  ?>
+<?php global $iconic_navigation; 
 include_once( "iconavs_icons.php" ); // font icons funs
 ?>
 <p class="icon description description-wide">
 	<label>Icon
-<i class="comment">Icons style and display options for each menu location can be set up at <a href='<?=admin_url( 'options-general.php?page='.$iconic_navigation->_NAME() )?>'><?=$iconic_navigation->help->UseName( $iconic_navigation->_NAME(),1 )?> Settings</a></i>
+<i class="comment">Icons style and display options for each menu location can be set up at <a href='<?php echo admin_url( 'options-general.php?page='.$iconic_navigation->_NAME() )?>'><?php echo $iconic_navigation->help->UseName( $iconic_navigation->_NAME(),1 )?> Settings</a></i>
 	</label>
-<? if( ! isset( $_REQUEST['edit-menu-item']) ) { // if js enabled ?>
-	<span class="icon_thumb"><? // div for img insert right after upload | js/admin_mysripts.js 
+<?php if( ! isset( $_REQUEST['edit-menu-item']) ) { // if js enabled ?>
+	<span class="icon_thumb"><?php // div for img insert right after upload | js/admin_mysripts.js 
 	if( $item->icon  ) { // we have icon in db, show icon ?>
-	<img class="item_icon" src="<?= $item->icon; ?>" width="50px" height="50px" />
-	<input type="submit" class="delete_icon butt button" name="delete_icon" id="<?= $item_id ?>" value="Delete icon"/>
-	<? } ?>
+	<img class="item_icon" src="<?php echo $item->icon; ?>" width="50px" height="50px" />
+	<input type="submit" class="delete_icon butt button" name="delete_icon" id="<?php echo $item_id ?>" value="Delete icon"/>
+	<?php } ?>
 	</span>
-	<? echo $iconic_navigation->help->cadreu_call_WP_Uploader('icon', $item_id ); // call uploader ?>
-	<input type="hidden" id="icon_url" name="img_url[<?= $item_id ?>]" value="<?= $item->icon ?>" />
+	<?php echo $iconic_navigation->help->cadreu_call_WP_Uploader('icon', $item_id ); // call uploader ?>
+	<input type="hidden" id="icon_url" name="img_url[<?php echo $item_id ?>]" value="<?php echo $item->icon ?>" />
 
-	<? // font icon choice popup link ?>
+	<?php // font icon choice popup link ?>
 	<span class="font_icons">Chose from font icons</span>
 	<span class="screen_shade">
 	<span class="close_up">x</span>
 		<span class="font_icon_popup">
-		<? echo iconnavs_Font_Icons( $item_id ) ?>
+		<?php echo iconnavs_Font_Icons( $item_id ); ?>
 		</span>
 	</span>
 
-	<? $font_ic_class = $item->font_icon ? ' class="'.$item->font_icon.'"' : ''; // $item font_icon meta is the icon's class. assign this class to the icon holder tag (<em>) to show the icon
+	<?php $font_ic_class = $item->font_icon ? ' class="'.$item->font_icon.'"' : ''; // $item font_icon meta is the icon's class. assign this class to the icon holder tag (<em>) to show the icon
 	$show_remove_link = $item->font_icon ? ' display' : ''; // add display class for display:block the remove link when t'item has a font_icon
 	?>
-	<em name="<?= $item_id ?>" <?=$font_ic_class ?>></em>
+	<em name="<?php echo $item_id ?>" <?php echo $font_ic_class ?>></em>
 
-	<span name="<?= $item_id ?>" class="remove_font_icon_js <?=$show_remove_link?>">Remove font icon</span>
-	<input type="hidden" id="font_icon" name="font_ic[<?= $item_id ?>]" value="<?= $item->font_icon ?>" />
-	 <?
+	<span name="<?php echo $item_id ?>" class="remove_font_icon_js <?=$show_remove_link?>">Remove font icon</span>
+	<input type="hidden" id="font_icon" name="font_ic[<?php echo $item_id ?>]" value="<?php echo $item->font_icon ?>" />
+	 <?php
 }
 
 	if( isset($_REQUEST['edit-menu-item']) && $_REQUEST['edit-menu-item'] == $item_id ) { // js disabled. render the upload at the active menu item only so we have one upload at a time. otherwise !is_uploaded_file from the inacitve items forse it to die on handling | slave_funs.php | moveUploadedFile() ?>
 
-	<?  $icon_data = $iconic_navigation->help->moveUploadedFile(); // handle FILES, get the icon url | slave_funs.php
+	<?php  $icon_data = $iconic_navigation->help->moveUploadedFile(); // handle FILES, get the icon url | slave_funs.php
 	// render icon thumb
 	//$_POST['delete_icon'] = null; 
 	if( null == $_POST['delete_icon'] ) {
@@ -265,11 +265,11 @@ include_once( "iconavs_icons.php" ); // font icons funs
 	} else { // delete_icon isset
 		$icon_url = ''; // pass the empty icon value to update_post_meta at insert_delete_nav_icon()
 	} ?>
-	<input type="hidden" id="icon_url" name="img_url[<?= $item_id ?>]" value="<?= $icon_url?>" />
-	<? echo $iconic_navigation->help->uploadForm('icon', $item_id ); // do upload form ?>
+	<input type="hidden" id="icon_url" name="img_url[<?php echo $item_id ?>]" value="<?php echo $icon_url?>" />
+	<?php echo $iconic_navigation->help->uploadForm('icon', $item_id ); // do upload form ?>
 
 
-	<? // font icon choice link | js-less ?>
+	<?php // font icon choice link | js-less ?>
 	<a class="font_icons" href="<?php
 					echo esc_url(
 						add_query_arg(
@@ -278,18 +278,18 @@ include_once( "iconavs_icons.php" ); // font icons funs
 							))							
 					); ?>">Chose from font icons</a>
 
-<? if( isset( $_REQUEST['selected_font_icon'] ) ) { // new icon is chosen suddenly
+<?php if( isset( $_REQUEST['selected_font_icon'] ) ) { // new icon is chosen suddenly
 	$_REQUEST['delete_font_icon'] = ''; // forget deleting 
 	$item->font_icon = ''; // forget old icon
 	$font_ic_class = $_REQUEST['selected_font_icon']; // show new icon immidiately
 	remove_query_arg('delete_font_icon'); // remove a possible delete_icon request ?>
-<? } ?>
+<?php } ?>
 	
-<? if( ! $_REQUEST['delete_font_icon'] ) { // no deleting, all is cool
+<?php if( ! $_REQUEST['delete_font_icon'] ) { // no deleting, all is cool
 	$font_ic_class = $item->font_icon ? $item->font_icon : $_REQUEST['selected_font_icon'] ; // show either old or new one ?>
-	<em id="<?= $item_id ?>" class="<?=$font_ic_class ?>"></em>
+	<em id="<?php echo $item_id ?>" class="<?php echo $font_ic_class ?>"></em>
 
-	<? if( $item->font_icon || $_REQUEST['selected_font_icon'] ) { // we have icon, show remove link ?>
+	<?php if( $item->font_icon || $_REQUEST['selected_font_icon'] ) { // we have icon, show remove link ?>
 	<a class="remove_font_icon" href="<?php
 					echo esc_url(
 						add_query_arg(
@@ -297,23 +297,23 @@ include_once( "iconavs_icons.php" ); // font icons funs
 								'delete_font_icon' => $item_id
 							))							
 					); ?>">Remove font icon</a>
-					<? } // end remove link ?>
-	<? } else { // delete request isset, no new icon chosen, pass empty icon value
+					<?php } // end remove link ?>
+	<?php } else { // delete request isset, no new icon chosen, pass empty icon value
 
 	$font_ic_class = ''; 
 	if(! isset($_REQUEST['chose_icon'] ) ) { ?>
 	<b class="comment alert">Don't forget to Save Menu!</b>
-	<? } // end if 
+	<?php } // end if 
     } // end else ?>
 
-	<? if( isset($_REQUEST['chose_icon'] ) && ! $_REQUEST['selected_font_icon'] ) { // link is clicked but icon is not chosen yet, show the font icons list ?>
+	<?php if( isset($_REQUEST['chose_icon'] ) && ! $_REQUEST['selected_font_icon'] ) { // link is clicked but icon is not chosen yet, show the font icons list ?>
 		<span class="font_icon_list">
-		<? echo iconnavs_Font_Icons_Jsless( $item_id ) ?>
+		<?php echo iconnavs_Font_Icons_Jsless( $item_id ) ?>
 		</span>
-	<? } ?>
-	<input type="hidden" id="font_icon" name="font_ic[<?= $item_id ?>]" value="<?= $font_ic_class ?>" />
+	<?php } ?>
+	<input type="hidden" id="font_icon" name="font_ic[<?php echo $item_id ?>]" value="<?php echo $font_ic_class ?>" />
 	
-<? } // finita icon upload   ?></p>
+<?php } // finita icon upload   ?></p>
 
 	            <div class="menu-item-actions description-wide submitbox">
 					<?php if( 'custom' != $item->type && $original_title !== false ) : ?>
