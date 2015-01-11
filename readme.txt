@@ -4,7 +4,7 @@ Contributors:  indybook
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JKVRG4KDMJMQA
 Tags: menu, navigation, icon, menu image upload, flat icon, font icon, responsive
 Requires at least: 3.5
-Tested up to: 3.9.2
+Tested up to: 4.1
 Stable tag: 1.1.6
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
